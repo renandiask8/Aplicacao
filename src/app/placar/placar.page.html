@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" routerLink="/folder">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Placar de Tênis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Configurar Partida -->
+  <ion-card *ngIf="!gameStarted">
+    <ion-card-header>
+      <ion-card-title>Configurar Partida</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <!-- Jogador 1 -->
+        <ion-item>
+          <ion-label position="floating">Nome player 1</ion-label>
+          <ion-input [(ngModel)]="player1Name" name="player1Name" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>foto</ion-label>
+          <input type="file" (change)="onFileChange($event, 'player1')" />
+        </ion-item>
+        <div class="photo-container">
+          <img *ngIf="player1Photo" [src]="player1Photo" class="player-photo" alt="" />
+        </div>
+
+        <!-- Jogador 2 -->
+        <ion-item>
+          <ion-label position="floating">Nome player 2</ion-label>
+          <ion-input [(ngModel)]="player2Name" name="player2Name" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>foto</ion-label>
+          <input type="file" (change)="onFileChange($event, 'player2')" />
+        </ion-item>
+        <div class="photo-container">
+          <img *ngIf="player2Photo" [src]="player2Photo" class="player-photo" alt="Foto do Jogador 2" />
+        </div>
+
+        <!-- Seleção de quem começa -->
+        <ion-item>
+          <ion-label>Quem começa?</ion-label>
+          <ion-radio-group [(ngModel)]="starter" name="starter">
+            <ion-item>
+              <ion-label>{{ player1Name || "Jogador 1" }}</ion-label>
+              <ion-radio slot="start" value="player1"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ player2Name || "Jogador 2" }}</ion-label>
+              <ion-radio slot="start" value="player2"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-item>
+
+        <ion-button expand="block" color="success" (click)="startGame()">Iniciar Partida</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Partida -->
+  <ion-card *ngIf="gameStarted">
+    <ion-card-header>
+      <ion-card-title>Placar</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h2>{{ player1Name }}</h2>
+            <div class="photo-container">
+              <img *ngIf="player1Photo" [src]="player1Photo" class="player-photo" />
+            </div>
+            <h3>Pontos: {{ getScore(player1Points) }}</h3>
+            <h4>Games: {{ player1Games }}</h4>
+            <h5>Sets: {{ player1Sets }}</h5>
+          </ion-col>
+          <ion-col>
+            <h2>{{ player2Name }}</h2>
+            <div class="photo-container">
+              <img *ngIf="player2Photo" [src]="player2Photo" class="player-photo" />
+            </div>
+            <h3>Pontos: {{ getScore(player2Points) }}</h3>
+            <h4>Games: {{ player2Games }}</h4>
+            <h5>Sets: {{ player2Sets }}</h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Controles -->
+  <ion-card *ngIf="gameStarted">
+    <ion-card-header>
+      <ion-card-title>Controles</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" color="primary" (click)="addPoint('player1')">
+        Ponto para {{ player1Name }}
+      </ion-button>
+      <ion-button expand="block" color="primary" (click)="addPoint('player2')">
+        Ponto para {{ player2Name }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Resumo do Jogo -->
+  <ion-card *ngIf="gameLog.length > 0">
+    <ion-card-header>
+      <ion-card-title>Resumo do Jogo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let log of gameLog">
+          {{ log }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

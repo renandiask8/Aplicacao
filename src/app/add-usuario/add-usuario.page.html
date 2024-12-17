@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="Usuario()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Adicionar Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">
+      Nome:
+    </ion-label>
+    <ion-input [(ngModel)]="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">
+      Senha
+    </ion-label>
+    <ion-input [(ngModel)]="senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">
+      Data de nascimento:
+    </ion-label>
+    <ion-input type="date" [(ngModel)]="dataNascimento"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Sexo:</ion-label>
+      <ion-select placeholder="Selecione" [(ngModel)]="sexo">
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="feminino">Feminino</ion-select-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">
+      Altura:
+    </ion-label>
+    <ion-input [(ngModel)]="altura"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">
+      Peso (kg):
+    </ion-label>
+    <ion-input type="number" [(ngModel)]="peso"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Mão Dominante:</ion-label>
+    <ion-select placeholder="Selecione" [(ngModel)]="maoDominante">
+      <ion-select-option value="destro">Destro</ion-select-option>
+      <ion-select-option value="canhoto">Canhoto</ion-select-option>
+    </ion-select>
+</ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" (click)="cadastrar()">
+        Cadastrar
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="light" expand="full" (click)="limparCampos()">
+        Limpar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

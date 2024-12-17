@@ -1,0 +1,99 @@
+/* Ajustes gerais para a página */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+ion-card {
+  margin: 15px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Estilos para a foto do jogador */
+.side img, .player-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+}
+
+/* Centraliza as fotos dos jogadores */
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Ajustes para os nomes dos jogadores */
+#player1DisplayName,
+#player2DisplayName {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Barra do meio (rede) */
+.net {
+  height: 5px;
+  background-color: #ccc;
+  margin: 15px 0;
+}
+
+/* Botões */
+ion-button {
+  margin-top: 10px;
+  --background: #4CAF50;  /* Cor do botão */
+  --color: white;
+  --border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Ajustes para a exibição dos jogadores */
+@media (max-width: 600px) {
+  .photo-container {
+    flex-direction: column;  /* Coloca as imagens dos jogadores em uma coluna */
+  }
+
+  .side img, .player-photo {
+    width: 70px;  /* Ajuste do tamanho da foto para dispositivos móveis */
+    height: 70px;
+  }
+
+  #player1DisplayName, #player2DisplayName {
+    font-size: 1rem;  /* Reduz o tamanho da fonte em telas menores */
+  }
+
+  ion-button {
+    width: 100%;  /* Garante que o botão ocupe toda a largura da tela */
+    font-size: 1rem;  /* Ajuste de fonte para botões */
+  }
+
+  .net {
+    height: 8px;  /* Diminui a altura da linha da rede */
+  }
+}
+
+/* Melhorando a centralização de todo o conteúdo */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+

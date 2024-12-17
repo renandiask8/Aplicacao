@@ -1,21 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Página Inicial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <ion-title size="large">Página Inicial</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong class="capitalize">Bem-vindo a minha aplicação!</strong>
+    <p>Aqui você encontrará:</p>
+    <ul>
+      <li>Sistema de login seguro e prático.</li>
+      <li>Cadastro e edição de usuários, com informações detalhadas como nome, data de nascimento, altura, peso e mais.</li>
+      <li>Controle de um jogo de tênis interativo.</li>
+      <li>Informações sobre o aplicativo e seu desenvolvedor.</li>
+      <li>Função de logout com uma mensagem de agradecimento.</li>
+    </ul>
+    <p><strong>Este aplicativo foi desenvolvido por Renan Bueno Dias. Matricula:204700 </strong> para a matéria de Desenvolvimento Mobile, do curso de Análise e Desenvolvimento de Sistemas, da Universidade de Passo Fundo (UPF).</p>
   </div>
 </ion-content>

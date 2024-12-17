@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista de Usuários</ion-title>
+    <ion-buttons slot="end" (click)="addUsuarios()">
+      <ion-button>
+        Novo
+        <ion-icon slot="end" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios; let i = index">
+      <ion-label>
+        <h2>{{ usuario.nome }}</h2>
+        <p><strong>Data de nascimento:</strong> {{ usuario.dataNascimento }}</p>
+        <p><strong>Sexo:</strong> {{ usuario.sexo }}</p>
+        <p><strong>Altura:</strong> {{ usuario.altura }}</p>
+        <p><strong>Peso:</strong> {{ usuario.peso }}</p>
+        <p><strong>Mão Dominante:</strong> {{ usuario.maoDominante }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="editUsuario(i)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
